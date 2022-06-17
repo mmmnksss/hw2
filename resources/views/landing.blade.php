@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{{ url('style/landing.css') }}">
-    <script src="./scripts/landing.js" defer></script>
+    <script src="{{ url('scripts/landing.js') }}" defer></script>
 
     <title>Welcome</title>
 </head>
@@ -18,18 +18,16 @@
     <div class="container" id="container">
 
         <div class="form-container sign-up-container">
-            <form name="signup_form" method="post">
+            <form name="signup_form" method="post" action="{{ url('signup') }}">
                 <h1>Welcome!</h1>
                 <span>Let us know more about yourself</span>
 
-                <?php
+                @csrf
 
-                if (isset($s_error)) {
-                    echo "<span class='error'>$s_error</span>";
-                }
-
-                ?>
-
+                @if($err == 'user_invalid')
+                <span class='error'>Invalid username</span>
+                @endif
+                
                 <div id="fullname">
                     <input name="firstname" type="text" placeholder="First name" required />
                     <input name="lastname" type="text" placeholder="Last name" required />
@@ -56,7 +54,7 @@
         </div>
 
         <div class="form-container sign-in-container">
-            <form name='login_form' method='post'>
+            <form name='login_form' method='post' action="{{ url('login') }}">
                 <h1>Welcome back!</h1>
                 <span>Log in with your credentials</span>
 
@@ -74,6 +72,7 @@
                 <div class="login_error hidden">Please fill out both fields.</div>
             </form>
         </div>
+
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
