@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url('style/landing.css') }}">
+    <script src="./scripts/landing.js" defer></script>
+
+    <title>Welcome</title>
+</head>
+
+<body>
+
+    <h2>Homework 2 - Danilo Caruso</h2>
+    <div class="container" id="container">
+
+        <div class="form-container sign-up-container">
+            <form name="signup_form" method="post">
+                <h1>Welcome!</h1>
+                <span>Let us know more about yourself</span>
+
+                <?php
+
+                if (isset($s_error)) {
+                    echo "<span class='error'>$s_error</span>";
+                }
+
+                ?>
+
+                <div id="fullname">
+                    <input name="firstname" type="text" placeholder="First name" required />
+                    <input name="lastname" type="text" placeholder="Last name" required />
+                </div>
+                <div id="err_name" class="signup_error hidden">Invalid name(s) (16 characters max.)</div>
+
+                <input name="email" type="email" placeholder="Email" required />
+                <div id="err_email" class="signup_error hidden">Invalid email address</div>
+
+                <input name="s_username" type="text" placeholder="Username" required />
+                <div id="err_user" class="signup_error hidden">Invalid username (16 characters max.)</div>
+
+                <div id="passwords">
+                    <input name="s_password" type="password" placeholder="Password" required />
+                    <input name="s_confirm_password" type="password" placeholder="Confirm password" required />
+                </div>
+                <div id="err_pass" class="signup_error hidden">Password is too weak: make it at least 8 characters</div>
+                <div id="err_match" class="signup_error hidden">Passwords don't match</div>
+
+                <input class="btn" type="submit" value="Sign up">
+                <div id="err_final" class="signup_error hidden">Something's wrong; double check your credentials.</div>
+
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form name='login_form' method='post'>
+                <h1>Welcome back!</h1>
+                <span>Log in with your credentials</span>
+
+                <?php
+
+                if (isset($l_error)) {
+                    echo "<span class='error'>$l_error</span>";
+                }
+
+                ?>
+
+                <input name="l_username" type="text" placeholder="Username" value='{{ old("l_username") }}'/>
+                <input name="l_password" type="password" placeholder="Password" />
+                <input class="btn" type="submit" value="Sign in">
+                <div class="login_error hidden">Please fill out both fields.</div>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Already have an account?</h1>
+                    <p>Switch to the log-in page.</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Don't have an account?</h1>
+                    <p>Create one right away!</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
