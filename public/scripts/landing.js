@@ -76,15 +76,10 @@ function checkUsername(event) {
     if (!/^[a-zA-Z0-9_]{1,16}$/.test(user.value)) {
         document.querySelector('#err_user').classList.remove("hidden");
         finalCheck.user = false;
-    } 
-    else {
-        document.querySelector('#err_user').classList.add('hidden');
-        finalCheck.user = true;
     }
-    
-    // else {
-    //     fetch("check.php?u=" + encodeURIComponent(user.value)).then(fetchResponse).then(jsonCheckUsername);
-    // }
+    else {
+        fetch("check/user/" + encodeURIComponent(user.value)).then(fetchResponse).then(jsonCheckUsername);
+    }
 }
 
 function checkEmail(event) {
@@ -95,13 +90,8 @@ function checkEmail(event) {
         finalCheck.email = false;
     } 
     else {
-        document.querySelector('#err_email').classList.add('hidden');
-        finalCheck.email = true;
+        fetch("check/email/" + encodeURIComponent(String(addr.value).toLowerCase())).then(fetchResponse).then(jsonCheckEmail);
     }
-    
-    // else {
-    //     fetch("check.php?e=" + encodeURIComponent(String(addr.value).toLowerCase())).then(fetchResponse).then(jsonCheckEmail);
-    // }
 }
 
 function checkPassword(event) {

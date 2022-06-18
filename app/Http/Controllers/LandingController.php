@@ -112,6 +112,18 @@ class LandingController extends BaseController
         return redirect('home');
     }
 
+    public function user_check(){
+        $query = request();
+        $bool = User::where('username',$query['q'])->exists();
+        return ['exists'=>$bool];
+    }
+
+    public function email_check(){
+        $query = request();
+        $bool = User::where('email',$query['q'])->exists();
+        return ['exists'=>$bool];
+    }
+
     public function logout()
     {
         Session::flush();

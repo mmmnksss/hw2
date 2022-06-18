@@ -13,9 +13,7 @@
 </head>
 
 <body>
-    <h2>GIF It Up!</h2>
-
-    <h4>Homework 2 - Danilo Caruso</h4>
+    <h2>GIF It Up! - Homework 2 - Danilo Caruso</h2>
     <div class="container" id="container">
 
         <div class="form-container sign-up-container">
@@ -42,8 +40,8 @@
                 @endif
                 
                 <div id="fullname">
-                    <input name="firstname" type="text" placeholder="First name" required />
-                    <input name="lastname" type="text" placeholder="Last name" required />
+                    <input name="firstname" type="text" placeholder="First name" value='{{ old("firstname") }}' required />
+                    <input name="lastname" type="text" placeholder="Last name" value='{{ old("lastname") }}' required />
                 </div>
                 <div id="err_name" class="signup_error hidden">Invalid name(s) (16 characters max.)</div>
 

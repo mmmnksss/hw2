@@ -21,6 +21,8 @@ Route::get('landing', 'App\Http\Controllers\LandingController@landing_home');
 
 Route::post('signup', 'App\Http\Controllers\LandingController@do_signup');
 Route::post('login', 'App\Http\Controllers\LandingController@do_login');
+Route::get('check/user/{q}','App\Http\Controllers\LandingController@user_check');
+Route::get('check/email/{q}','App\Http\Controllers\LandingController@email_check');
 
 Route::get('logout', 'App\Http\Controllers\LandingController@logout');
 
