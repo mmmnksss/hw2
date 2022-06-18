@@ -10,6 +10,8 @@ class User extends Model
     
     protected $table = "users";
 
+    protected $fillable = ['username', 'password', 'email', 'firstname', 'lastname'];
+    
     public function posts()
     {
         return $this->hasMany('App\Models\Post');

@@ -24,8 +24,20 @@
 
                 @csrf
 
-                @if($err == 'user_invalid')
+                @if($err == 's_incomplete')
+                <span class='error'>Please fill out the whole form</span>
+                @elseif($err == 'f_name_invalid' || $err == 'l_name_invalid')
+                <span class='error'>Invalid name(s)</span>
+                @elseif($err == 'user_invalid')
                 <span class='error'>Invalid username</span>
+                @elseif($err == 'user_taken')
+                <span class='error'>This username is already taken</span>
+                @elseif($err == 'pass_invalid' || $err == 'pass_match')
+                <span class='error'>Password invalid or doesn't match</span>
+                @elseif($err == 'email_invalid')
+                <span class='error'>Invalid email</span>
+                @elseif($err == 'email_taken')
+                <span class='error'>This email is already taken</span>
                 @endif
                 
                 <div id="fullname">
@@ -58,13 +70,13 @@
                 <h1>Welcome back!</h1>
                 <span>Log in with your credentials</span>
 
-                <?php
-
-                if (isset($l_error)) {
-                    echo "<span class='error'>$l_error</span>";
-                }
-
-                ?>
+                @csrf
+                
+                @if($err == 'l_incomplete')
+                <span class='error'>Please fill both fields</span>
+                @elseif($err == 'bad_credentials')
+                <span class='error'>Incorrect username and/or password</span>
+                @endif
 
                 <input name="l_username" type="text" placeholder="Username" value='{{ old("l_username") }}'/>
                 <input name="l_password" type="password" placeholder="Password" />
