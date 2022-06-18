@@ -65,4 +65,10 @@ class LandingController extends BaseController
     {
         
     }
+
+    public function post()
+    {
+        $user = User::find(Session::get('id'));
+        return $user->posts;
+    }
 }

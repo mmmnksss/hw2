@@ -9,4 +9,9 @@ class User extends Model
     public $timestamps = false;
     
     protected $table = "users";
+
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post');
+    }
 }
