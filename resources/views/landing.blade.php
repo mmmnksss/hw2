@@ -13,8 +13,9 @@
 </head>
 
 <body>
+    <h2>GIF It Up!</h2>
 
-    <h2>Homework 2 - Danilo Caruso</h2>
+    <h4>Homework 2 - Danilo Caruso</h4>
     <div class="container" id="container">
 
         <div class="form-container sign-up-container">
@@ -71,7 +72,7 @@
                 <span>Log in with your credentials</span>
 
                 @csrf
-                
+
                 @if($err == 'l_incomplete')
                 <span class='error'>Please fill both fields</span>
                 @elseif($err == 'bad_credentials')
