@@ -15,5 +15,4 @@ class HomeController extends BaseController
         $user = User::find(Session::get('id'));
         return view('home')->with('username', $user->username);
     }
-
 }

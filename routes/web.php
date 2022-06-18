@@ -20,7 +20,6 @@ Route::get('/', function () {
 Route::get('landing', 'App\Http\Controllers\LandingController@landing_home');
 Route::get('home', 'App\Http\Controllers\HomeController@index');
 
-
 Route::post('signup', 'App\Http\Controllers\LandingController@do_signup');
 Route::post('login', 'App\Http\Controllers\LandingController@do_login');
 Route::get('check/user/{q}','App\Http\Controllers\LandingController@user_check');
@@ -28,5 +27,6 @@ Route::get('check/email/{q}','App\Http\Controllers\LandingController@email_check
 
 Route::get('logout', 'App\Http\Controllers\LandingController@logout');
 
+Route::get('fetch', 'App\Http\Controllers\PostController@fetch');
 
 Route::get('post', 'App\Http\Controllers\LandingController@post');
