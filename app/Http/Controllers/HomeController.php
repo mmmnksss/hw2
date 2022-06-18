@@ -8,13 +8,12 @@ use Illuminate\Routing\Controller as BaseController;
 
 class HomeController extends BaseController
 {
-    public function landing_home()
+    public function index()
     {
-        if(Session::get('id')) return redirect('home');
+        if(!Session::get('id')) return redirect('landing');
 
-        $err = Session::get('err');
-        Session::forget('err');
-        return view("landing")->with('err', $err);
+        $user = User::find(Session::get('id'));
+        return view('home')->with('username', $user->username);
     }
 
 }
