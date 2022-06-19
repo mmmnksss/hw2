@@ -1,12 +1,12 @@
 @extends('blanks.blank')
 
-@section ('page_title', 'Home - GIF It Up!')
+@section ('page_title', "$username's profile")
 
 <head>
     <link rel="stylesheet" href="{{ url('style/home.css') }}">
     <link rel="stylesheet" href="{{ url('style/posts.css') }}">
 
-    <script src="{{ url('scripts/home.js') }}" defer></script>
+    <script src="{{ url('scripts/profile.js') }}" defer></script>
 </head>
 
 

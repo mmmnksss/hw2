@@ -1,14 +1,21 @@
-function onJsonPosts(json) {
+function deletePost(event) {
+    // event.currentTarget.parentNode.parentNode.parentNode.parentNode. innerHTML = '';
+    fetch("delete_post.php?q=" + event.currentTarget.dataset.postId);
+    const toDelete = event.currentTarget.parentNode.parentNode;
+    toDelete.remove();
+}
+
+function onJson(json) {
     const mainFeed = document.querySelector("#feed");
 
     if (!json) {
         console.log("EMPTY - No items fetched.");
         const notFound = document.createElement("div")
         notFound.classList.add("no-data")
-        notFound.textContent = "There's nothing to be seen here. Create a post now!";
+        notFound.textContent = "You haven't made any post yet."
         document.querySelector(".fixed").appendChild(notFound);
     }
-    
+
     if (json) {
         console.log(json);
         console.log("Fetched " + json.length + " items");
@@ -38,7 +45,23 @@ function onJsonPosts(json) {
             gif.src = json[i].content.gif;
             div.appendChild(gif);
 
+            const pageDeleteContent = document.createElement('div');
+            pageDeleteContent.classList.add('deletecontent');
+            div.appendChild(pageDeleteContent);
+
+            const pageDelete = document.createElement('button');
+            pageDelete.classList.add('delete');
+            pageDelete.textContent = "Delete post";
+            pageDelete.dataset.postId = json[i].id_post;
+            pageDeleteContent.appendChild(pageDelete);
             mainFeed.appendChild(div);
+
+
+
+            const deleteButtons = document.querySelectorAll('.delete');
+            for (const deleteButton of deleteButtons) {
+                deleteButton.addEventListener('click', deletePost);
+            }
         }
 
         const feedEnd = document.createElement('div');
@@ -47,9 +70,7 @@ function onJsonPosts(json) {
         feedEnd.textContent = "You've reached the end. " + json.length + " posts shown.";
         mainFeed.appendChild(feedEnd);
     }
-
 }
-
 
 function onResponse(response) {
     return response.json();
@@ -59,4 +80,4 @@ function onError(error) {
     console.log("Error while fetching posts: " + error);
 }
 
-fetch("fetch/aaaaa").then(onResponse, onError).then(onJsonPosts);
+fetch("fetch/mine").then(onResponse).then(onJson);

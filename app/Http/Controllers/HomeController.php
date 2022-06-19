@@ -15,4 +15,12 @@ class HomeController extends BaseController
         $user = User::find(Session::get('id'));
         return view('home')->with('username', $user->username);
     }
+
+    public function profile()
+    {
+        if(!Session::get('id')) return redirect('landing');
+
+        $user = User::find(Session::get('id'));
+        return view('profile')->with('username', $user->username);
+    }
 }

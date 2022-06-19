@@ -98,5 +98,7 @@ main>section {
 
 .no-data {
     color: grey;
-    text-align: center;
+    font-size: larger;
+    position: absolute;
+    top: 50vh;
 }
