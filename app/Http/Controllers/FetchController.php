@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class FetchController extends BaseController
 {
-    public function fetch($type = null) // Defaults to fetch all posts
+    public function fetch($type = null, $query = null) // Defaults to fetch all posts
     {
         if (!Session::get('id')) return 0;
 
@@ -22,7 +22,8 @@ class FetchController extends BaseController
         else if ($type == "mine")
             $all_posts = Post::where('author', Session::get('id'))->orderBy('id', 'desc')->get();
 
-        
+        else if ($type == "search" && $query != null)
+            $all_posts = Post::where('title','LIKE',"%$query%")->orWhere('cap','LIKE',"%$query%")->orderBy('id','desc')->get();
 
         else return 0;
 

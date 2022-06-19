@@ -35,12 +35,16 @@ class PostController extends BaseController
             ];
 
         $del = Post::where('id', $id)->delete();
-        return ($del ? [
+        // return ($del ? [
+        //     "authorised" => true,
+        //     "success" => true
+        // ] : [
+        //     "authorised" => true,
+        //     "success" => false 
+        // ]);
+        return [
             "authorised" => true,
-            "success" => true
-        ] : [
-            "authorised" => true,
-            "success" => false 
-        ]);
+            "success" => $del ? true : false
+        ];
     }
 }

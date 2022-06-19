@@ -3,6 +3,7 @@ function deletePost(event) {
     fetch("post/delete/" + event.currentTarget.dataset.postId);
     const toDelete = event.currentTarget.parentNode.parentNode;
     toDelete.remove();
+    reFetch();
 }
 
 function onJson(json) {
@@ -80,4 +81,11 @@ function onError(error) {
     console.log("Error while fetching posts: " + error);
 }
 
-fetch("fetch/mine").then(onResponse, onError).then(onJson);
+function reFetch(){
+    const main = document.querySelector("#feed");
+    main.innerHTML = '';
+    fetch("fetch/mine").then(onResponse, onError).then(onJson);
+}
+
+reFetch();
+// fetch("fetch/mine").then(onResponse, onError).then(onJson);

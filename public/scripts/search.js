@@ -1,5 +1,5 @@
 function onJsonSearch(json) {
-    if (!json) {
+    if (!json.length) {
         const post = document.querySelector("#feed");
         post.innerHTML = "";
         const notFound = document.createElement("div");
@@ -9,11 +9,11 @@ function onJsonSearch(json) {
     }
     else {
         console.log(json);
-        console.log(json.length);
+        console.log(json.length + " post(s) found");
         document.querySelector("#feed").innerHTML = "";
 
         const searchResponse = document.createElement("div");
-        searchResponse.textContent = "Your search for '" + json[0].searchedFor + "' has returned " + json.length + " matches.";
+        searchResponse.textContent = "Your search for '" + document.querySelector("#search_fieldbox").value + "' has returned " + json.length + " matches.";
         searchResponse.classList.add("search_success");
         document.querySelector("#feed").appendChild(searchResponse);
 
@@ -30,7 +30,7 @@ function onJsonSearch(json) {
 
             const author = document.createElement("div");
             author.classList.add("author");
-            author.textContent = "@" + json[i].author;
+            author.textContent = "posted by @" + json[i].author;
             div.appendChild(author);
 
             const content = document.createElement("div");
@@ -60,7 +60,7 @@ function searchPost(event) {
     event.preventDefault();
 
     const query = document.querySelector("#search_fieldbox").value;
-    if (query) fetch("fetch.php?search=" + encodeURIComponent(query)).then(onResponse, onError).then(onJsonSearch)
+    if (query) fetch("fetch/search/" + encodeURIComponent(query)).then(onResponse, onError).then(onJsonSearch)
     else {
         document.querySelector("#feed").innerHTML = "";
         const empty = document.createElement("div");

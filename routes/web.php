@@ -30,6 +30,8 @@ Route::get('check/email/{q}','App\Http\Controllers\LandingController@email_check
 Route::get('logout', 'App\Http\Controllers\LandingController@logout');
 
 Route::get('fetch/{type?}', 'App\Http\Controllers\FetchController@fetch');
+Route::get('fetch/{type}/{query}', 'App\Http\Controllers\FetchController@fetch');
+
 
 Route::get('post/delete/{id}', 'App\Http\Controllers\PostController@delete');
 
