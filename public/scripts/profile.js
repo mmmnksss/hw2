@@ -1,6 +1,6 @@
 function deletePost(event) {
     // event.currentTarget.parentNode.parentNode.parentNode.parentNode. innerHTML = '';
-    fetch("delete_post.php?q=" + event.currentTarget.dataset.postId);
+    fetch("post/delete/" + event.currentTarget.dataset.postId);
     const toDelete = event.currentTarget.parentNode.parentNode;
     toDelete.remove();
 }
@@ -8,7 +8,7 @@ function deletePost(event) {
 function onJson(json) {
     const mainFeed = document.querySelector("#feed");
 
-    if (!json) {
+    if (!json.length) {
         console.log("EMPTY - No items fetched.");
         const notFound = document.createElement("div")
         notFound.classList.add("no-data")
@@ -16,7 +16,7 @@ function onJson(json) {
         document.querySelector(".fixed").appendChild(notFound);
     }
 
-    if (json) {
+    else {
         console.log(json);
         console.log("Fetched " + json.length + " items");
         for (let i = 0; i < json.length; i++) {
@@ -32,7 +32,7 @@ function onJson(json) {
 
             const author = document.createElement("div");
             author.classList.add("author");
-            author.textContent = "@" + json[i].author;
+            author.textContent = "posted by you";
             div.appendChild(author);
 
             const content = document.createElement("div");
@@ -52,7 +52,7 @@ function onJson(json) {
             const pageDelete = document.createElement('button');
             pageDelete.classList.add('delete');
             pageDelete.textContent = "Delete post";
-            pageDelete.dataset.postId = json[i].id_post;
+            pageDelete.dataset.postId = json[i].postId;
             pageDeleteContent.appendChild(pageDelete);
             mainFeed.appendChild(div);
 
@@ -67,7 +67,7 @@ function onJson(json) {
         const feedEnd = document.createElement('div');
         feedEnd.classList.add("end");
         // feedBegin.classList.add('textStart');
-        feedEnd.textContent = "You've reached the end. " + json.length + " posts shown.";
+        feedEnd.textContent = "You've reached the end. You posted a total of " + json.length + " post(s).";
         mainFeed.appendChild(feedEnd);
     }
 }
@@ -80,4 +80,4 @@ function onError(error) {
     console.log("Error while fetching posts: " + error);
 }
 
-fetch("fetch/mine").then(onResponse).then(onJson);
+fetch("fetch/mine").then(onResponse, onError).then(onJson);

@@ -18,7 +18,7 @@
                 <h1>GIF It Up!</h1>
                 <a href='{{ url('/') }}'>Home<span class='material-menu material-symbols-outlined'>home</span></a>
                 <a href='{{ url('profile') }}'> {{ $username }} <span class='material-menu material-symbols-outlined'>person</span></a>
-                <a href='search.php'>Search<span class='material-menu material-symbols-outlined'>search</span></a>
+                <a href='{{ url('search') }}'>Search<span class='material-menu material-symbols-outlined'>search</span></a>
                 <a href='{{ url('logout') }}'>Logout<span class='material-menu material-symbols-outlined'>logout</span></a>
                 <span id='mmmnksss'>1000001680
             </div>

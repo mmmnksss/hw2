@@ -14,11 +14,15 @@ class FetchController extends BaseController
     {
         if (!Session::get('id')) return 0;
 
+        $posts = [];
+
         if (!$type) 
             $all_posts = Post::orderBy('id', 'desc')->get();
 
         else if ($type == "mine")
             $all_posts = Post::where('author', Session::get('id'))->orderBy('id', 'desc')->get();
+
+        
 
         else return 0;
 
@@ -34,6 +38,7 @@ class FetchController extends BaseController
                 )
             ];
         }
+
         return $posts;
     }
 }

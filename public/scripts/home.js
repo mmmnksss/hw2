@@ -25,7 +25,7 @@ function onJsonPosts(json) {
 
             const author = document.createElement("div");
             author.classList.add("author");
-            author.textContent = "@" + json[i].author;
+            author.textContent = "posted by @" + json[i].author;
             div.appendChild(author);
 
             const content = document.createElement("div");
@@ -44,7 +44,7 @@ function onJsonPosts(json) {
         const feedEnd = document.createElement('div');
         feedEnd.classList.add("end");
         // feedBegin.classList.add('textStart');
-        feedEnd.textContent = "You've reached the end. " + json.length + " posts shown.";
+        feedEnd.textContent = "You've reached the end. " + json.length + " post(s) shown.";
         mainFeed.appendChild(feedEnd);
     }
 
