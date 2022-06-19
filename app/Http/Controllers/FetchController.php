@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class FetchController extends BaseController
 {
-    public function fetch($type = null) // Defaults to fetch all posts.
+    public function fetch($type = null) // Defaults to fetch all posts
     {
         if (!Session::get('id')) return 0;
 
