@@ -19,7 +19,7 @@
                 <a href='{{ url('/') }}'>Home<span class='material-menu material-symbols-outlined'>home</span></a>
                 <a href='profile.php'> {{ $username }} <span class='material-menu material-symbols-outlined'>person</span></a>
                 <a href='search.php'>Search<span class='material-menu material-symbols-outlined'>search</span></a>
-                <a href='logout.php'>Logout<span class='material-menu material-symbols-outlined'>logout</span></a>
+                <a href='{{ url('logout') }}'>Logout<span class='material-menu material-symbols-outlined'>logout</span></a>
                 <span id='mmmnksss'>1000001680
             </div>
 

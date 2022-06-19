@@ -59,4 +59,4 @@ function onError(error) {
     console.log("Error while fetching posts: " + error);
 }
 
-fetch("fetch.php?posts=all").then(onResponse, onError).then(onJsonPosts);
+fetch("fetch/all").then(onResponse, onError).then(onJsonPosts);

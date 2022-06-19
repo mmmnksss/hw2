@@ -27,6 +27,6 @@ Route::get('check/email/{q}','App\Http\Controllers\LandingController@email_check
 
 Route::get('logout', 'App\Http\Controllers\LandingController@logout');
 
-Route::get('fetch', 'App\Http\Controllers\PostController@fetch');
+Route::get('fetch/all', 'App\Http\Controllers\PostController@fetch_all');
 
 Route::get('post', 'App\Http\Controllers\LandingController@post');
