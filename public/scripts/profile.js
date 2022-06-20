@@ -73,7 +73,7 @@ function onJson(json) {
 
         const feedEnd = document.createElement('div');
         feedEnd.classList.add("end");
-        // feedBegin.classList.add('textStart');
+
         feedEnd.textContent = "You've reached the end. You posted a total of " + json.length + " post(s).";
         mainFeed.appendChild(feedEnd);
     }
