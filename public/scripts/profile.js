@@ -94,4 +94,3 @@ function reFetch(){
 }
 
 reFetch();
-// fetch("fetch/mine").then(onResponse, onError).then(onJson);
