@@ -1,15 +1,15 @@
 function onJsonPosts(json) {
     const mainFeed = document.querySelector("#feed");
 
-    if (!json) {
-        console.log("EMPTY - No items fetched.");
+    if (!json.length) {
+        console.log("Empty: no items fetched.");
         const notFound = document.createElement("div")
         notFound.classList.add("no-data")
         notFound.textContent = "There's nothing to be seen here. Create a post now!";
         document.querySelector(".fixed").appendChild(notFound);
     }
     
-    if (json) {
+    else {
         console.log(json);
         console.log("Fetched " + json.length + " items");
         for (let i = 0; i < json.length; i++) {
