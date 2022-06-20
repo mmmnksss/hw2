@@ -3,6 +3,7 @@ function deletePost(event) {
     fetch("post/delete/" + event.currentTarget.dataset.postId);
     const toDelete = event.currentTarget.parentNode.parentNode;
     toDelete.remove();
+    // Aggiungere check se post rimosso
     reFetch();
 }
 
