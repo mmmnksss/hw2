@@ -24,7 +24,7 @@
             </div>
 
             <div id='r_nav'>
-                <a id='create_btn' href='create.php'>Post something<span id='material-add' class='material-symbols-outlined'>add</span></a>
+                <a id='create_btn' href='{{ url('create') }}'>Post something<span id='material-add' class='material-symbols-outlined'>add</span></a>
             </div>
         </nav>
     </header>

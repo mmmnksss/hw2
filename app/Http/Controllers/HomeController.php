@@ -31,4 +31,12 @@ class HomeController extends BaseController
         $user = User::find(Session::get('id'));
         return view('search')->with('username', $user->username);
     }
+
+    public function create()
+    {
+        if(!Session::get('id')) return redirect('landing');
+
+        $user = User::find(Session::get('id'));
+        return view('create')->with('username', $user->username);
+    }
 }
