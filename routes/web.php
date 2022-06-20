@@ -18,10 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('landing', 'App\Http\Controllers\LandingController@landing_home');
-Route::get('home', 'App\Http\Controllers\HomeController@index');
-Route::get('profile', 'App\Http\Controllers\HomeController@profile');
-Route::get('search', 'App\Http\Controllers\HomeController@search');
-Route::get('create', 'App\Http\Controllers\HomeController@create');
+Route::get('home', 'App\Http\Controllers\RedirectController@index');
+Route::get('profile', 'App\Http\Controllers\RedirectController@profile');
+Route::get('search', 'App\Http\Controllers\RedirectController@search');
+Route::get('create', 'App\Http\Controllers\RedirectController@create');
+Route::get('feedback', 'App\Http\Controllers\RedirectController@feedback');
 
 Route::post('signup', 'App\Http\Controllers\LandingController@do_signup');
 Route::post('login', 'App\Http\Controllers\LandingController@do_login');
@@ -37,3 +38,5 @@ Route::get('api/search/{q?}', 'App\Http\Controllers\TenorController@gif_search')
 
 Route::get('post/delete/{id}', 'App\Http\Controllers\PostController@delete');
 Route::post('post/create', 'App\Http\Controllers\PostController@create');
+
+Route::post('feedback/send', 'App\Http\Controllers\FeedbackController@send_feedback');

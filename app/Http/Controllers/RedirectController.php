@@ -6,7 +6,7 @@ use App\Models\User;
 
 use Illuminate\Routing\Controller as BaseController;
 
-class HomeController extends BaseController
+class RedirectController extends BaseController
 {
     public function index()
     {
@@ -38,5 +38,13 @@ class HomeController extends BaseController
 
         $user = User::find(Session::get('id'));
         return view('create')->with('username', $user->username);
+    }
+
+    public function feedback()
+    {
+        if(!Session::get('id')) return redirect('landing');
+
+        $user = User::find(Session::get('id'));
+        return view('feedback')->with('username', $user->username);
     }
 }

@@ -7,13 +7,12 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class Feedback extends Model
 {
     public $timestamps = false;
-    
-    protected $table = "posts";
 
-    protected $fillable = ['author', 'title', 'cap', 'gif'];
+    protected $connection = "mongodb";
     
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
-    }
+    protected $collection = 'feedbacks';
+
+    protected $fillable = [
+        'userid', 'name', 'content'
+    ];
 }

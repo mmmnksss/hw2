@@ -20,7 +20,7 @@
                 <a href='{{ url('profile') }}'> {{ $username }} <span class='material-menu material-symbols-outlined'>person</span></a>
                 <a href='{{ url('search') }}'>Search<span class='material-menu material-symbols-outlined'>search</span></a>
                 <a href='{{ url('logout') }}'>Logout<span class='material-menu material-symbols-outlined'>logout</span></a>
-                <span id='mmmnksss'>1000001680
+                <a href='{{ url('feedback') }}' id='mmmnksss'>1000001680</a>
             </div>
 
             <div id='r_nav'>
