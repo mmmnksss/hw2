@@ -1,14 +1,14 @@
 function deletePost(event) {
-    // event.currentTarget.parentNode.parentNode.parentNode.parentNode. innerHTML = '';
     fetch("post/delete/" + event.currentTarget.dataset.postId).then(onResponse).then(function(json) {
         if(json["success"] == false)
         {
             return null;
         }
     });
+
     const toDelete = event.currentTarget.parentNode.parentNode;
     toDelete.remove();
-    // Aggiungere check se post rimosso
+
     reFetch();
 }
 
