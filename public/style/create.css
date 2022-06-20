@@ -125,6 +125,9 @@ textarea {
 }
 
 #found_gifs img {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     width: 30%;
     border-radius: 10px;
     margin-top: 10px;
@@ -149,5 +152,5 @@ textarea {
 }
 
 .img_selected {
-    border: 1px solid green;
+    border: 3px solid green;
 }

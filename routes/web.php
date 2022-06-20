@@ -36,5 +36,4 @@ Route::get('fetch/{type}/{query}', 'App\Http\Controllers\FetchController@fetch')
 Route::get('api/search/{q?}', 'App\Http\Controllers\TenorController@gif_search');
 
 Route::get('post/delete/{id}', 'App\Http\Controllers\PostController@delete');
-
-Route::get('post', 'App\Http\Controllers\LandingController@post');
+Route::post('post/create', 'App\Http\Controllers\PostController@create');

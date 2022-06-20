@@ -14,6 +14,9 @@
 
 <main class="fixed">
     <section id="feed">
+        @if (session('status'))
+            <span class="post_success">{{ session('status') }}</span>
+        @endif
     </section>
 </main>
 

@@ -21,7 +21,6 @@ button {
 
 main {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
     max-width: 1000px;
@@ -32,10 +31,13 @@ main {
 #feed {
     width: 67%;
     flex-shrink: 1;
+    z-index: 3;
 }
 
-#feed {
-    z-index: 3;
+@media screen and (max-width: 500px) {
+    #feed {
+        width: 90%;
+    }
 }
 
 main>section {
@@ -102,3 +104,10 @@ main>section {
     position: absolute;
     top: 50vh;
 }
+
+.post_success {
+    color: green;
+    font-size: 20px;
+    text-align: center;
+}
+

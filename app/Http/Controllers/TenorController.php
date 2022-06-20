@@ -17,7 +17,7 @@ class TenorController extends BaseController
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://g.tenor.com/v1/search?&key=KEG0C4DGVG63&media_filter=minimal&limit=6&q=' . $encoded,
+            CURLOPT_URL => 'https://g.tenor.com/v1/search?&key=' . env('TENOR_KEY') .'&media_filter=minimal&limit=6&q=' . $encoded,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
