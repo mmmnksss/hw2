@@ -16,7 +16,7 @@
 }
 
 .author {
-    margin-top: 8px;
+    margin-top: 4px;
     font-size: 14px;
 }
 
@@ -40,10 +40,10 @@
 }
 
 .delete {
-    margin-top: 8px;
+    margin-top: 16px;
     border-radius: 20px;
     border: 1px solid darkred;
-    background-color: red;
+    background-color: firebrick;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
