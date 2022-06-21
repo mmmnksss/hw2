@@ -20,7 +20,7 @@
         <input id="tenor_button" type="submit" value="I'm feeling lucky">
         <div id="found_gifs">
         </div>
-        <div id="confirm_box" class="success hidden">The GIF you last clicked has been selected.</div>
+        <div id="confirm_box" class="success hidden">The GIF you clicked has been selected.</div>
     </form>
 
     <h2 id="create_start">And now, create your post</h2>
