@@ -11,8 +11,4 @@ class Feedback extends Model
     protected $connection = "mongodb";
     
     protected $collection = 'feedbacks';
-
-    protected $fillable = [
-        'userid', 'name', 'content'
-    ];
 }
