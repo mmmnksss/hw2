@@ -47,10 +47,12 @@ function onJson(json) {
             content.textContent = json[i].content.caption;
             div.appendChild(content);
 
-            const gif = document.createElement("img");
-            gif.classList.add("gif");
-            gif.src = json[i].content.gif;
-            div.appendChild(gif);
+            if(json[i].content.gif) {
+                const gif = document.createElement("img");
+                gif.classList.add("gif");
+                gif.src = json[i].content.gif;
+                div.appendChild(gif);
+            }
 
             const pageDeleteContent = document.createElement('div');
             pageDeleteContent.classList.add('deletecontent');
