@@ -16,7 +16,7 @@
     <h2>GIF It Up! - Homework 2 - Danilo Caruso</h2>
     <div class="container" id="container">
 
-        <div class="form-container sign-up-container">
+        <div class="form_container sign_up_container">
             <form name="signup_form" method="post" action="{{ url('signup') }}">
                 <h1>Welcome!</h1>
                 <span>Let us know more about yourself</span>
@@ -64,7 +64,7 @@
             </form>
         </div>
 
-        <div class="form-container sign-in-container">
+        <div class="form_container sign_in_container">
             <form name='login_form' method='post' action="{{ url('login') }}">
                 <h1>Welcome back!</h1>
                 <span>Log in with your credentials</span>
