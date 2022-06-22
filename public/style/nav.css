@@ -8,7 +8,6 @@ body {
     padding: 0;
     margin: 0;
     background-color: #f6f5f7;
-    color: var(--text);
     overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
 }
