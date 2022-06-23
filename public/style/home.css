@@ -81,6 +81,7 @@ main>section {
 
 #search_button:hover {
     background-color: #0099ff;
+    cursor: pointer;
 }
 
 .search_error {
